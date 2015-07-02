@@ -1,0 +1,84 @@
+require "yast"
+require_relative "password"
+
+Yast.import "UI"
+Yast.import "Label"
+
+
+module Password
+  class PasswordDialog
+
+    include Yast::UIShortcuts
+    include Yast::I18n
+    include Yast::Logger
+
+    def initialize
+      textdomain "Password Policy"
+    end
+
+    # Displays the dialog
+    def run
+      return unless create_dialog
+
+      begin
+        return event_loop
+      ensure
+        close_dialog
+      end
+    end
+    ###
+    ###
+  private
+
+  # Draws the dialog
+  def create_dialog
+    Yast::UI.OpenDialog(
+      Opt(:decorated, :defaultsize),
+      VBox(
+        # Header
+        Heading(_("Password Policy")),
+
+        # Filter checkboxes
+        Frame(
+          _("Endpoints"),
+          add_endpoints_widget
+        ),
+        VSpacing(0.3),
+
+        # Quit button
+        PushButton(Id(:cancel), Yast::Label.QuitButton)
+      )
+    )
+  end
+  def close_dialog
+    Yast::UI.CloseDialog
+  end
+
+  # Simple event loop
+  def event_loop
+    loop do
+      input = Yast::UI.UserInput
+      if input == :cancel
+        # Break the loop
+        break
+      else
+        log.warn "Unexpected input #{input}"
+      end
+    end
+  end
+
+  # Widget containing a checkbox per filter
+  def add_endpoints_widget
+      endpoints = ENDPOINTS.collect { |k,v| {:name =>k, :label => _(v) } }        
+
+       checkboxes = endpoints.map do |endpoint|
+         name = endpoint[:name]
+         Left(
+           HBox(
+             CheckBox(Id(name), endpoint[:label])           )
+         )
+       end
+       VBox(*checkboxes)
+  end
+ end # class
+end # module
