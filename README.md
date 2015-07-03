@@ -7,7 +7,7 @@ YaST Password Policy Module
 [![Travis Build](https://travis-ci.org/yast/yast-foo.svg?branch=master)](https://travis-ci.org/yast/yast-foobar)
 [![Jenkins Build](http://img.shields.io/jenkins/s/https/ci.opensuse.org/yast-foo-master.svg)](https://ci.opensuse.org/view/Yast/job/yast-foo-master/)
 [![Coverage Status](https://img.shields.io/coveralls/yast/yast-foobar.svg)](https://coveralls.io/r/yast/yast-foobar?branch=master)
-[![Code Climate](https://codeclimate.com/github/yast/yast-foobar/badges/gpa.svg)](https://codeclimate.com/github/yast/yast-foobar)
+[![Code Climate](https://codeclimate.com/github/vpereira/yast-password/badges/gpa.svg)](https://codeclimate.com/github/vpereira/yast-password)
 [![Inline docs](http://inch-ci.org/github/yast/yast-foobar.svg?branch=master)](http://inch-ci.org/github/yast/yast-foobar)
 
 
