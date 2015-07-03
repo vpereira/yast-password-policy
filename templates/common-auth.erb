@@ -15,4 +15,4 @@
 auth	required	pam_env.so
 auth	optional	pam_gnome_keyring.so
 auth	required	pam_unix.so	try_first_pass
-password requisite pam_cracklib.so retry=<%=@policy[:retry1]%> minlen=<%=@policy[:minlen]%> dcredit=<%=@policy[:dcredit]%>
+password requisite pam_cracklib.so retry=<%=@policy[:retries]%> minlen=<%=@policy[:minlen]%> dcredit=<%=@policy[:dcredit]%>

@@ -44,7 +44,10 @@ module Password
           add_endpoints_widget
         ),
         VSpacing(0.3),
-
+        Frame(
+          _("Password Policy"),
+          add_password_policy_widget
+        ),
         # Quit button
         PushButton(Id(:cancel), Yast::Label.QuitButton)
       )
@@ -69,7 +72,7 @@ module Password
 
   # Widget containing a checkbox per filter
   def add_endpoints_widget
-      endpoints = ENDPOINTS.collect { |k,v| {:name =>k, :label => _(v) } }        
+      endpoints = ENDPOINTS.collect { |k,v| {:name =>k, :label => _(v) } }
 
        checkboxes = endpoints.map do |endpoint|
          name = endpoint[:name]
@@ -79,6 +82,19 @@ module Password
          )
        end
        VBox(*checkboxes)
+  end
+
+  def add_password_policy_widget
+    elements = DEFAULT_POLICY.map do |name,value|
+      Left(
+        HBox(
+          Label("#{name.to_s}:"),
+          HSpacing(1),
+          InputField(Id(name), "", value.to_s)
+        )
+      )
+    end
+    VBox(*elements)
   end
  end # class
 end # module

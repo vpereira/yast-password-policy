@@ -1,7 +1,7 @@
 require_relative 'endpoint'
 
 DEFAULT_POLICY = {
-  :retry1 => 3, # retry is reserved
+  :retries => 3, # retry is reserved
   :difok => 2,
   :minlen => 9,
   :dcredit => 1,
