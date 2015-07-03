@@ -18,34 +18,34 @@ dcredit = <%= @policy[:dcredit] %>
 # The maximum credit for having uppercase characters in the new password.
 # If less than 0 it is the minimum number of uppercase characters in the new
 # password.
-# ucredit = 1
+ucredit = <%= @policy[:ucredit] %>
 #
 # The maximum credit for having lowercase characters in the new password.
 # If less than 0 it is the minimum number of lowercase characters in the new
 # password.
-# lcredit = 1
+lcredit = <%= @policy[:lcredit] %>
 #
 # The maximum credit for having other characters in the new password.
 # If less than 0 it is the minimum number of other characters in the new
 # password.
-# ocredit = 1
+ocredit = <%= @policy[:ocredit] %>
 #
 # The minimum number of required classes of characters for the new
 # password (digits, uppercase, lowercase, others).
-# minclass = 0
+minclass = <%= @policy[:minclass] %>
 #
 # The maximum number of allowed consecutive same characters in the new password.
 # The check is disabled if the value is 0.
-# maxrepeat = 0
+maxrepeat = <%= @policy[:maxrepeat] %>
 #
 # The maximum number of allowed consecutive characters of the same class in the
 # new password.
 # The check is disabled if the value is 0.
-# maxclassrepeat = 0
+maxclassrepeat = <%= @policy[:maxclassrepeat] %>
 #
 # Whether to check for the words from the passwd entry GECOS string of the user.
 # The check is enabled if the value is not 0.
-# gecoscheck = 0
+gecoscheck = <%= @policy[:gecoscheck] %>
 #
 # Path to the cracklib dictionaries. Default is to use the cracklib default.
-# dictpath =
+dictpath = <%= @policy[:dicpath] %>
