@@ -58,6 +58,16 @@ Testing Environment
 
 ````rake test````
 
+It can run in a docker container. To run it, you must build the image:
+
+````docker build -t your-user/opensuse:13.2_with_ruby .````
+
+and run it:
+
+````docker run -t -i vpereira/opensuse:13.2_with_ruby````
+
+it will run your container starting yast in the ncurses mode
+
 Troubleshooting
 ===============
 
