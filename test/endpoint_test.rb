@@ -1,5 +1,4 @@
-require_relative "../src/lib/password/endpoint"
-require "minitest/autorun"
+require_relative 'test_helper'
 
 include Password
 

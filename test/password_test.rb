@@ -1,6 +1,4 @@
-require_relative "../src/lib/password/password"
-require "minitest/autorun"
-
+require_relative 'test_helper'
 
 describe Password::Password do
   before do
