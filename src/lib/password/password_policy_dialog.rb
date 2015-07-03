@@ -13,7 +13,7 @@ module Password
     include Yast::Logger
 
     def initialize
-      textdomain "Password Policy"
+      textdomain "password_policy"
     end
 
     # Displays the dialog
