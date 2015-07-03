@@ -1,7 +1,7 @@
 #
-# spec file for package yast2-journalctl
+# spec file for package yast2-password-policy
 #
-# Copyright (c) 2014 SUSE LLC.
+# Copyright (c) 2015 SUSE LLC.
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
