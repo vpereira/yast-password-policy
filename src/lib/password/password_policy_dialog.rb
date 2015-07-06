@@ -5,6 +5,14 @@ Yast.import "UI"
 Yast.import "Label"
 
 
+module Yast
+  class LabelClass < Module
+    def RevertButton
+      _("&Revert")
+    end
+  end
+end
+
 module Password
   class PasswordDialog
 
@@ -48,8 +56,12 @@ module Password
           _("Password Policy"),
           add_password_policy_widget
         ),
-        # Quit button
-        PushButton(Id(:cancel), Yast::Label.QuitButton)
+        # buttons
+        ButtonBox(
+          PushButton(Id(:cancel), Yast::Label.QuitButton),
+          PushButton(Id(:revert), Yast::Label.RevertButton),
+          PushButton(Id(:accept), Yast::Label.AcceptButton),
+        )
       )
     )
   end
