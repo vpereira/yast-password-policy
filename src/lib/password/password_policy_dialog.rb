@@ -1,8 +1,6 @@
 require "yast"
 require_relative "password"
 
-Yast.import "UI"
-Yast.import "Label"
 
 
 module Yast
@@ -14,6 +12,11 @@ module Yast
 end
 
 module Password
+
+  Yast.import "UI"
+  Yast.import "Label"
+  Yast.import "Popup"
+
   class PasswordDialog
 
     include Yast::UIShortcuts
@@ -78,8 +81,10 @@ module Password
         break
       when :accept
         apply_password_policy
+         Yast::Popup.Notify(_("Passsword policy applied successfully!"))
       when :revert
         revert_password_policy
+        Yast::Popup.Notify(_("Password policy reverted sucessfully!"))
         # make bar
       else
         log.warn "Unexpected input #{input}"
