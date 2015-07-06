@@ -18,8 +18,8 @@ module Password
       # TODO lock file before operation
       FileUtils.cp @path,@orig unless File.exists? @orig
       # atomic write
-      File.open(@path,File::RDWR|File::CREAT, 0600) do |f|
-        f.lock(File::LOCK_EX)
+      File.open(@path,File::RDWR|File::CREAT, 0644) do |f|
+        f.flock(File::LOCK_EX)
         f.write(ERB.new(File.read(@template)).result(binding))
       end
     end

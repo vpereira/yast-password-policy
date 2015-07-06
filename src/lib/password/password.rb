@@ -27,28 +27,20 @@ module Password
 
   class Password
     attr_reader :policy, :endpoints
-    def initialize(params)
+    def initialize(params = {})
       @policy = DEFAULT_POLICY.merge(params)
       @endpoints = ENDPOINTS.collect { |k,v| Endpoint.new({:policy=>policy,:name=>k,:path=>v}) }
     end
 
-    def to_file
+    # for now we apply all
+    def apply
       @endpoints.each { |endpoint| endpoint.dispatch }
     end
+
+    # for now revert all
+    def revert
+      @endpoints.each { |endpoint| endpoint.revert }
+    end
+
   end
-end
-
-
-if $0 == __FILE__
-  # man pwquality.conf to see which params are valid
-  my_policy = {
-    :difok=>2,
-    :minlen=>9,
-    :dcredit=>1
-  }
-
-  pwd_obj = Password::Password.new my_policy
-
-  puts pwd_obj.to_file
-
 end

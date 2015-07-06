@@ -72,14 +72,30 @@ module Password
   # Simple event loop
   def event_loop
     loop do
-      input = Yast::UI.UserInput
-      if input == :cancel
+      case Yast::UI.UserInput
+      when :cancel
         # Break the loop
         break
+      when :accept
+        apply_password_policy
+      when :revert
+        revert_password_policy
+        # make bar
       else
         log.warn "Unexpected input #{input}"
       end
     end
+  end
+
+  # TODO
+  # we should honor the selected checkboxes and the defined password policy
+  # to apply and to reset
+  def apply_password_policy
+    Password.new.apply
+  end
+
+  def revert_password_policy
+    Password.new.revert
   end
 
   # Widget containing a checkbox per filter
