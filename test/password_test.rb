@@ -23,4 +23,14 @@ describe Password::Password do
     end
   end
 
+  describe "with custom endpoint" do
+    before do
+      @pp =  Password::Password.new({:policy=>@my_policy,:endpoints=>{:foo=>"/bar"}})
+    end
+
+    it "should have the custom endpoint" do
+      @pp.endpoints[0].wont_be_nil
+      @pp.endpoints[0].name.must_be :==, :foo
+    end
+  end
 end
