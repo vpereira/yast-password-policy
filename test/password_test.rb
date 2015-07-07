@@ -7,14 +7,14 @@ describe Password::Password do
       :minlen => 15,
       :dcredit => 1
     }
-    @p = Password::Password.new @my_policy
+    @p = Password::Password.new({:policy=>@my_policy})
   end
 
   it "should not be nil" do
     @p.wont_be_nil
   end
 
-  describe "endpoints" do
+  describe "default endpoints" do
     it "should not be nil" do
       @p.endpoints.wont_be_nil
     end
