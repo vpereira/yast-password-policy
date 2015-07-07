@@ -5,7 +5,9 @@ describe Password::Password do
     @my_policy = {
       :difok => 8,
       :minlen => 15,
-      :dcredit => 1
+      :dcredit => 1,
+      :ucredit => -2,
+      :lcredit => -1
     }
     @p = Password::Password.new({:policy=>@my_policy})
   end
