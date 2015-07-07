@@ -92,18 +92,14 @@ module Password
   end
 
   # TODO
-  # we should honor the selected checkboxes and the defined password policy
+  # we should honor the defined password policy
   # to apply and to reset
   def apply_password_policy
-    ENDPOINTS.each do |name,value|
-      Yast::Popup::Notify(Yast::UI.QueryWidget(Id(name), :Value).to_s)
-    end
-
-    Password.new.apply
+    Password.new({:policy=>DEFAULT_POLICY,:endpoints=>get_selected_endpoints}).apply
   end
 
   def revert_password_policy
-    Password.new.revert
+    Password.new.new({:policy=>DEFAULT_POLICY,:endpoints=>get_selected_endpoints}).revert
   end
 
   # Widget containing a checkbox per filter
@@ -128,6 +124,10 @@ module Password
       )
     end
     VBox(*elements)
+  end
+  private
+  def get_selected_endpoints
+    ENDPOINTS.select { |name,value| Yast::UI.QueryWidget(Id(name), :Value) }
   end
  end # class
 end # module
