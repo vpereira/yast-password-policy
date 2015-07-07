@@ -85,7 +85,6 @@ module Password
       when :revert
         revert_password_policy
         Yast::Popup.Notify(_("Password policy reverted sucessfully!"))
-        # make bar
       else
         log.warn "Unexpected input #{input}"
       end
@@ -96,6 +95,10 @@ module Password
   # we should honor the selected checkboxes and the defined password policy
   # to apply and to reset
   def apply_password_policy
+    ENDPOINTS.each do |name,value|
+      log.warn Yast::UI.QueryWidget(name, :value)
+    end
+
     Password.new.apply
   end
 
@@ -108,10 +111,9 @@ module Password
       endpoints = ENDPOINTS.collect { |k,v| {:name =>k, :label => _(v) } }
 
        checkboxes = endpoints.map do |endpoint|
-         name = endpoint[:name]
          Left(
            HBox(
-             CheckBox(Id(name), endpoint[:label])           )
+             CheckBox(Id(endpoint[:name]), endpoint[:label],false)           )
          )
        end
        VBox(*checkboxes)
