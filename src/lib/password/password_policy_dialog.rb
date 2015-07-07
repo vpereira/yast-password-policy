@@ -96,7 +96,8 @@ module Password
   # to apply and to reset
   def apply_password_policy
     ENDPOINTS.each do |name,value|
-      log.warn Yast::UI.QueryWidget(name, :value)
+      log.warn "name has class #{name.class}"
+      log.warn Yast::UI.QueryWidget(Id(name), :value)
     end
 
     Password.new.apply
@@ -108,12 +109,11 @@ module Password
 
   # Widget containing a checkbox per filter
   def add_endpoints_widget
-      endpoints = ENDPOINTS.collect { |k,v| {:name =>k, :label => _(v) } }
-
-       checkboxes = endpoints.map do |endpoint|
+       checkboxes = ENDPOINTS.map do |name,label|
+         log.warn "name has class #{name.class}"
          Left(
            HBox(
-             CheckBox(Id(endpoint[:name]), endpoint[:label],false)           )
+             CheckBox(Id(name), label,false)           )
          )
        end
        VBox(*checkboxes)
