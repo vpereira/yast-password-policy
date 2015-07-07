@@ -130,9 +130,12 @@ module Password
 
   # build a password_policy object
   def build_password_policy
-    Password.new({:policy=>DEFAULT_POLICY,:endpoints=>get_selected_endpoints})
+    Password.new({:policy=>get_password_policy,:endpoints=>get_selected_endpoints})
   end
 
+  def get_password_policy
+    Hash[DEFAULT_POLICY.map { |name,value|  [name,Yast::UI.QueryWidget(Id(name),:Value)] } ]
+  end
 
   def get_selected_endpoints
     ENDPOINTS.select { |name,value| Yast::UI.QueryWidget(Id(name), :Value) }
