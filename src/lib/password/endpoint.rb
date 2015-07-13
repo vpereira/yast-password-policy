@@ -1,9 +1,9 @@
-require 'fileutils'
-require 'erb'
+require "fileutils"
+require "erb"
 
 module Password
+  # class to handle different endpoints
   class Endpoint
-
     attr_reader :name, :path, :template, :orig
 
     def initialize(params)
@@ -17,9 +17,9 @@ module Password
     def dispatch
       # dont backup the file if backup already exists
       # TODO lock file before operation
-      FileUtils.cp @path,@orig unless File.exists? @orig
+      FileUtils.cp @path, @orig unless File.exist? @orig
       # atomic write
-      File.open(@path,File::RDWR|File::CREAT, 0644) do |f|
+      File.open(@path, File::RDWR | File::CREAT, 0644) do |f|
         f.flock(File::LOCK_EX)
         f.write(ERB.new(File.read(@template)).result(binding))
       end
@@ -27,14 +27,14 @@ module Password
 
     def revert
       # TODO lock file before operation
-      FileUtils.mv @orig, @path if File.exists? @orig
+      FileUtils.mv @orig, @path if File.exist? @orig
     end
 
     protected
 
     def build_template_path
       fname = File.basename(@path)
-      File.expand_path File.join(File.dirname(__FILE__),'..','..','..','templates',"#{fname}.erb")
+      File.expand_path File.join(File.dirname(__FILE__), "..", "..", "..", "templates", "#{fname}.erb")
     end
 
     def build_orig_path
