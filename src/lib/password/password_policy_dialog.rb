@@ -141,5 +141,5 @@ module Password
     def get_selected_endpoints
       ENDPOINTS.select { |name, _| Yast::UI.QueryWidget(Id(name), :Value) }
     end
- end # class
+  end # class
 end # module
