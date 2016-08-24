@@ -41,7 +41,9 @@ describe Endpoint do
     it "should have a template" do
       @e.must_respond_to :template
       @e.template.wont_be_nil
-      @e.template.must_be :==, File.expand_path(File.join(File.dirname(__FILE__), "..", "templates", "foo.conf.erb"))
+      @e.template.must_be :==, File.expand_path(
+        File.join(File.dirname(__FILE__), "..", "templates", "foo.conf.erb")
+      )
     end
   end
 end

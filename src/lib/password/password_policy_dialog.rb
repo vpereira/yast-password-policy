@@ -2,6 +2,7 @@ require "yast"
 require_relative "password"
 
 module Yast
+  # class to add label to button
   class LabelClass < Module
     def RevertButton
       _("&Revert")
@@ -9,11 +10,17 @@ module Yast
   end
 end
 
+#
+# module password
+#
 module Password
   Yast.import "UI"
   Yast.import "Label"
   Yast.import "Popup"
 
+  #
+  # class for the dialog design
+  #
   class PasswordDialog
     include Yast::UIShortcuts
     include Yast::I18n
@@ -124,8 +131,6 @@ module Password
       end
       VBox(*elements)
     end
-
-    private
 
     # build a password_policy object
     def build_password_policy

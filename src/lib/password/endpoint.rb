@@ -34,7 +34,8 @@ module Password
 
     def build_template_path
       fname = File.basename(@path)
-      File.expand_path File.join(File.dirname(__FILE__), "..", "..", "..", "templates", "#{fname}.erb")
+      File.expand_path File.join(File.dirname(__FILE__), "..", "..", "..",
+        "templates", "#{fname}.erb")
     end
 
     def build_orig_path
