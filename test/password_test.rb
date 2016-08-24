@@ -27,7 +27,9 @@ describe Password::Password do
 
   describe "with custom endpoint" do
     before do
-      @pp = Password::Password.new(policy: @my_policy, endpoints: { foo: "/bar" })
+      @pp = Password::Password.new(
+        policy: @my_policy, endpoints: { foo: "/bar" }
+      )
     end
 
     it "should have the custom endpoint" do

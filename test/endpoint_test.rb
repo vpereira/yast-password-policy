@@ -15,16 +15,20 @@ describe Endpoint do
   end
 
   it "should not be explode" do
-    proc { Endpoint.new(policy: @my_policy, name: :pwd, path: "/tmp/foo.conf") }.must_be_silent
+    proc do
+      Endpoint.new(policy: @my_policy, name: :pwd, path: "/tmp/foo.conf")
+    end.must_be_silent
   end
 
   it "should not be nil" do
-    Endpoint.new(policy: @my_policy, name: :pwd, path: "/tmp/foo.conf").wont_be_nil
+    Endpoint.new(policy: @my_policy,
+                 name: :pwd, path: "/tmp/foo.conf").wont_be_nil
   end
 
   describe "attributes" do
     before do
-      @e = Endpoint.new(policy: @my_policy, name: :pwd, path: "/tmp/foo.conf")
+      @e = Endpoint.new(policy: @my_policy,
+                        name: :pwd, path: "/tmp/foo.conf")
     end
     it "should have a path" do
       @e.must_respond_to :path
