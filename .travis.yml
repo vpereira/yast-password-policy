@@ -10,5 +10,5 @@ before_install:
 script:
     - rake check:syntax
     - rake check:pot
-    - rubocop
-    - COVERAGE=1 rake test:unit
+    - rubocop -c rubocop_yast_style.yml
+    - COVERAGE=1 rake test
