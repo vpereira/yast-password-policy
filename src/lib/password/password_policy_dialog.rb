@@ -1,6 +1,9 @@
 require "yast"
 require_relative "password"
 
+# rubocop:disable Style/MethodName
+# rubocop:disable Metrics/MethodLength
+# rubocop:disable Metrics/AbcSize
 module Yast
   # class to add label to button
   class LabelClass < Module
