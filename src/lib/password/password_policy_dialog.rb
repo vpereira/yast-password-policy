@@ -105,7 +105,8 @@ module Password
       checkboxes = ENDPOINTS.map do |name, label|
         Left(
           HBox(
-            CheckBox(Id(name), label, false))
+            CheckBox(Id(name), label, false)
+          )
         )
       end
       VBox(*checkboxes)

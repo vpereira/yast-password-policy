@@ -1,30 +1,30 @@
-require_relative 'test_helper'
+require_relative "test_helper"
 
 include Password
 
 describe Endpoint do
   before do
     @my_policy = {
-      :difok => 8,
-      :minlen => 15,
-      :dcredit => 1
+      difok:   8,
+      minlen:  15,
+      dcredit: 1
     }
     @my_endpoint = {
-      :pwd => "/tmp/foo.conf"
+      pwd: "/tmp/foo.conf"
     }
   end
 
   it "should not be explode" do
-    proc { Endpoint.new({:policy=>@my_policy,:name=>:pwd,:path=>"/tmp/foo.conf"}) }.must_be_silent
+    proc { Endpoint.new(policy: @my_policy, name: :pwd, path: "/tmp/foo.conf") }.must_be_silent
   end
 
   it "should not be nil" do
-    Endpoint.new({:policy=>@my_policy,:name=>:pwd,:path=>"/tmp/foo.conf"}).wont_be_nil
+    Endpoint.new(policy: @my_policy, name: :pwd, path: "/tmp/foo.conf").wont_be_nil
   end
 
   describe "attributes" do
     before do
-      @e = Endpoint.new({:policy=>@my_policy,:name=>:pwd,:path=>"/tmp/foo.conf"})
+      @e = Endpoint.new(policy: @my_policy, name: :pwd, path: "/tmp/foo.conf")
     end
     it "should have a path" do
       @e.must_respond_to :path
@@ -41,7 +41,7 @@ describe Endpoint do
     it "should have a template" do
       @e.must_respond_to :template
       @e.template.wont_be_nil
-      @e.template.must_be :==, File.expand_path(File.join(File.dirname(__FILE__),'..','templates',"foo.conf.erb"))
+      @e.template.must_be :==, File.expand_path(File.join(File.dirname(__FILE__), "..", "templates", "foo.conf.erb"))
     end
   end
 end

@@ -19,14 +19,14 @@ module Password
       # TODO lock file before operation
       FileUtils.cp @path, @orig unless File.exist? @orig
       # atomic write
-      File.open(@path, File::RDWR | File::CREAT, 0644) do |f|
+      File.open(@path, File::RDWR | File::CREAT, 0o644) do |f|
         f.flock(File::LOCK_EX)
         f.write(ERB.new(File.read(@template)).result(binding))
       end
     end
 
     def revert
-      # TODO lock file before operation
+      # TODO: lock file before operation
       FileUtils.mv @orig, @path if File.exist? @orig
     end
 

@@ -1,15 +1,15 @@
-require_relative 'test_helper'
+require_relative "test_helper"
 
 describe Password::Password do
   before do
     @my_policy = {
-      :difok => 8,
-      :minlen => 15,
-      :dcredit => 1,
-      :ucredit => -2,
-      :lcredit => -1
+      difok:   8,
+      minlen:  15,
+      dcredit: 1,
+      ucredit: -2,
+      lcredit: -1
     }
-    @p = Password::Password.new({:policy=>@my_policy})
+    @p = Password::Password.new(policy: @my_policy)
   end
 
   it "should not be nil" do
@@ -27,7 +27,7 @@ describe Password::Password do
 
   describe "with custom endpoint" do
     before do
-      @pp =  Password::Password.new({:policy=>@my_policy,:endpoints=>{:foo=>"/bar"}})
+      @pp = Password::Password.new(policy: @my_policy, endpoints: { foo: "/bar" })
     end
 
     it "should have the custom endpoint" do

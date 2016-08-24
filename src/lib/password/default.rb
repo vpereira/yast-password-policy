@@ -13,10 +13,10 @@ module Password
     gecoscheck:     0,
     dicpath:        ""
 
-  }
+  }.freeze
 
   ENDPOINTS = {
     pam_d:        "/etc/pam.d/common-auth",
     libpwquality: "/etc/security/pwquality.conf"
-  }
+  }.freeze
 end
