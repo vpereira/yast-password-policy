@@ -4,7 +4,7 @@ YaST Password Policy Module
 
 <!-- Adapt the used badges, keep the order unchanged so it is unified for all repositories.
   To use the badges replace "foo" by the real repository name.  -->
-[![Travis Build](https://travis-ci.org/yast/yast-foo.svg?branch=master)](https://travis-ci.org/yast/yast-foobar)
+[![Travis Build](https://travis-ci.org/vpereira/yast-password-policy.svg?branch=master)](https://travis-ci.org/vpereira/yast-password-policy)
 [![Jenkins Build](http://img.shields.io/jenkins/s/https/ci.opensuse.org/yast-foo-master.svg)](https://ci.opensuse.org/view/Yast/job/yast-foo-master/)
 [![Coverage Status](https://img.shields.io/coveralls/yast/yast-foobar.svg)](https://coveralls.io/r/yast/yast-foobar?branch=master)
 [![Code Climate](https://codeclimate.com/github/vpereira/yast-password-policy/badges/gpa.svg)](https://codeclimate.com/github/vpereira/yast-password-policy)
