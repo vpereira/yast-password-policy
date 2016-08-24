@@ -60,11 +60,11 @@ Testing Environment
 
 It can run in a docker container. To run it, you must build the image:
 
-````docker build -t your-user/opensuse:13.2_with_ruby .````
+````docker build -t your-user/opensuse:leap_with_ruby .````
 
 and run it:
 
-````docker run  -i -t -v $PWD:/password-policy your-user/opensuse:13.2_with_ruby````
+````docker run  -i -t -v $PWD:/password-policy your-user/opensuse:leap_with_ruby````
 
 it will run your container starting yast in the ncurses mode
 
