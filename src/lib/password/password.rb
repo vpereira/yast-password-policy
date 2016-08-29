@@ -1,5 +1,7 @@
 require_relative "default"
 require_relative "endpoint"
+require "yaml"
+
 module Password
   #
   # class responsible for collect all endpoints
@@ -16,8 +18,10 @@ module Password
     end
 
     # for now we apply all
+    # return the policy
     def apply
       @endpoints.each(&:dispatch)
+      self
     end
 
     # for now revert all
@@ -28,14 +32,14 @@ module Password
     # the YAML_CONFIG file will be generated
     # after the policy was successfuly applied
     def self.current_policy
-      current_policy = if File.exists? YAML_CONFIG
+      if File.exists? YAML_CONFIG
         YAML.load(File.read(YAML_CONFIG))
       else
         DEFAULT_POLICY
       end
     end
-    def self.save_policy
-      File.open(YAM_CONFIG, "w") do |file|
+    def save_policy
+      File.open(YAML_CONFIG, "w") do |file|
         file.write @policy.to_yaml
       end
     end

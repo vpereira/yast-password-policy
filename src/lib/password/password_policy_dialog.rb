@@ -88,7 +88,10 @@ module Password
           # Break the loop
           break
         when :accept
-          apply_password_policy
+          p = apply_password_policy
+          # if the password isnt the default
+          # save it
+          p.save_policy unless p == DEFAULT_POLICY
           Yast::Popup.Notify(_("Password policy applied successfully!"))
         when :revert
           revert_password_policy
