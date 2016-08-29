@@ -89,7 +89,7 @@ module Password
           break
         when :accept
           apply_password_policy
-          Yast::Popup.Notify(_("Passsword policy applied successfully!"))
+          Yast::Popup.Notify(_("Password policy applied successfully!"))
         when :revert
           revert_password_policy
           Yast::Popup.Notify(_("Password policy reverted sucessfully!"))

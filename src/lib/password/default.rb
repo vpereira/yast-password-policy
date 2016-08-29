@@ -17,6 +17,7 @@ module Password
 
   ENDPOINTS = {
     pam_d:        "/etc/pam.d/common-auth",
-    libpwquality: "/etc/security/pwquality.conf"
+    libpwquality: "/etc/security/pwquality.conf",
+    login_defs: "/etc/login.defs"
   }.freeze
 end
