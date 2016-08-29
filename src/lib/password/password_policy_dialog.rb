@@ -54,7 +54,7 @@ module Password
         Opt(:decorated, :defaultsize),
         VBox(
           # Header
-          Heading(_("Password Policy")),
+          Heading(_("Password Policy Configuration")),
 
           # Filter checkboxes
           Frame(
@@ -131,7 +131,9 @@ module Password
           HBox(
             Label("#{name}:"),
             HSpacing(1),
-            InputField(Id(name), "", value.to_s)
+            Right(
+              InputField(Id(name), "", value.to_s)
+            )
           )
         )
       end
