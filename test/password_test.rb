@@ -21,7 +21,7 @@ describe Password::Password do
       @p.endpoints.wont_be_nil
     end
     it "should have 2 endpoints" do
-      @p.endpoints.size.must_be :==, 2
+      @p.endpoints.size.must_be :==, 3
     end
   end
 

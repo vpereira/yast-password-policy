@@ -20,4 +20,7 @@ module Password
     libpwquality: "/etc/security/pwquality.conf",
     login_defs: "/etc/login.defs"
   }.freeze
+  # set the path for something like:
+  # /etc/yast-password-policy/current-policy.yml
+  YAML_CONFIG = "current-policy.yml"
 end

@@ -123,7 +123,7 @@ module Password
     end
 
     def add_password_policy_widget
-      elements = DEFAULT_POLICY.map do |name, value|
+      elements = Password::current_policy.map do |name, value|
         Left(
           HBox(
             Label("#{name}:"),

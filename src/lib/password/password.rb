@@ -24,5 +24,15 @@ module Password
     def revert
       @endpoints.each(&:revert)
     end
+
+    # the YAML_CONFIG file will be generated
+    # after the policy was successfuly applied
+    def self.current_policy
+      current_policy = if File.exists? YAML_CONFIG
+        YAML.load(File.read(YAML_CONFIG))
+      else
+        DEFAULT_POLICY
+      end
+    end
   end
 end
