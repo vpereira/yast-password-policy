@@ -8,7 +8,7 @@ module Password
   class Password
     attr_reader :policy, :endpoints
     def initialize(params = {})
-      @policy = DEFAULT_POLICY.merge(params[:policy])
+      @policy = Password::current_policy.merge(params[:policy])
       endpoints = params[:endpoints].nil? ? ENDPOINTS : params[:endpoints]
       @endpoints = endpoints.collect do |k, v|
         Endpoint.new(policy: policy, name: k, path: v)
@@ -32,6 +32,11 @@ module Password
         YAML.load(File.read(YAML_CONFIG))
       else
         DEFAULT_POLICY
+      end
+    end
+    def self.save_policy
+      File.open(YAM_CONFIG, "w") do |file|
+        file.write @policy.to_yaml
       end
     end
   end
