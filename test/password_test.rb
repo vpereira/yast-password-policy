@@ -43,4 +43,20 @@ describe Password::Password do
       @pp.endpoints[0].name.must_be :==, :foo
     end
   end
+  describe "with saved policy" do
+    before do
+      @my_policy = {
+        difok:   13,
+        minlen:  15,
+        dcredit: 1,
+        ucredit: -2,
+        lcredit: -1
+      }
+      Password::Password.new(policy: @my_policy).save_policy
+      @p = Password::Password.current_policy
+    end
+    it "should use values from saved policy" do
+      @p[:difok].must_be :==, 13
+    end
+  end
 end
