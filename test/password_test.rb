@@ -1,7 +1,9 @@
 require_relative "test_helper"
+require "fileutils"
 
 describe Password::Password do
   before do
+    FileUtils.rm_f(YAML_CONFIG)
     @my_policy = {
       difok:   8,
       minlen:  15,
