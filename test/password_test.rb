@@ -12,6 +12,10 @@ describe Password::Password do
     @p = Password::Password.new(policy: @my_policy)
   end
 
+  it "Password::current_policy returns DEFAULT_POLICY" do
+    Password::Password.current_policy.must_be :==, DEFAULT_POLICY
+  end
+
   it "should not be nil" do
     @p.wont_be_nil
   end
