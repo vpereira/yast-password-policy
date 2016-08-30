@@ -61,13 +61,13 @@ module Password
             _("Endpoints"),
             add_endpoints_widget
           ),
-          VSpacing(1.0),
+          VSpacing(0.5),
           Frame(
             _("Password Policy"),
             add_password_policy_widget
           ),
           # buttons
-          VSpacing(2.0),
+          VSpacing(0.5),
           Frame(
             _("Actions"),
             ButtonBox(
