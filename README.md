@@ -34,11 +34,13 @@ Screenshots
 
 ncurses version:
 
-![ncurses](https://cloud.githubusercontent.com/assets/37418/18080656/b6977676-6e96-11e6-987b-beb3d838731f.png)
+![ncurses](https://cloud.githubusercontent.com/assets/37418/18081122/c13d9a86-6e98-11e6-8c29-721e60e7179a.png)
+
 
 qt version:
 
-![qt](https://cloud.githubusercontent.com/assets/37418/18080664/bdb30a6a-6e96-11e6-92e6-31f64947a00d.png)
+![qt](https://cloud.githubusercontent.com/assets/37418/18081126/c8d3fe0c-6e98-11e6-9d1b-b820fc55a207.png)
+
 
 
 
