@@ -61,16 +61,20 @@ module Password
             _("Endpoints"),
             add_endpoints_widget
           ),
-          VSpacing(0.3),
+          VSpacing(1.0),
           Frame(
             _("Password Policy"),
             add_password_policy_widget
           ),
           # buttons
-          ButtonBox(
-            PushButton(Id(:cancel), Yast::Label.QuitButton),
-            PushButton(Id(:revert), Yast::Label.RevertButton),
-            PushButton(Id(:accept), Yast::Label.AcceptButton)
+          VSpacing(2.0),
+          Frame(
+            _("Actions"),
+            ButtonBox(
+              PushButton(Id(:cancel), Yast::Label.QuitButton),
+              PushButton(Id(:revert), Yast::Label.RevertButton),
+              PushButton(Id(:accept), Yast::Label.AcceptButton)
+            )
           )
         )
       )
@@ -118,7 +122,8 @@ module Password
       checkboxes = ENDPOINTS.map do |name, label|
         Left(
           HBox(
-            CheckBox(Id(name), label, false)
+            CheckBox(Id(name), label, false),
+            HSpacing(0.5)
           )
         )
       end
@@ -130,7 +135,7 @@ module Password
         Left(
           HBox(
             Label("#{name}:"),
-            HSpacing(1),
+            # HSpacing(1),
             Right(
               InputField(Id(name), "", value.to_s)
             )
