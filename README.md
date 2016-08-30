@@ -29,6 +29,18 @@ In this first release, this module has to endpoints configured:
 In a central place, configure multiple endpoints with a single password policy
 
 
+Screenshots
+============
+
+ncurses version:
+
+![ncurses](https://cloud.githubusercontent.com/assets/37418/18080656/b6977676-6e96-11e6-987b-beb3d838731f.png)
+
+qt version:
+
+![qt](https://cloud.githubusercontent.com/assets/37418/18080664/bdb30a6a-6e96-11e6-92e6-31f64947a00d.png)
+
+
 
 Development
 ===========
